@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script>
+            window.onload = function () {
+              document
+                .querySelector(".say-hi-button")
+                .addEventListener("click", function () {
+
+                });
+            };
+        </script>
+        <style>
+            .buttons {
+              position: absolute;
+              top: 0;
+              left: 0;
+              margin-left: 10px;
+              width: 100%;
+              height: 5em;
+              display: flex;
+              justify-content: start;
+              align-items: center;
+              z-index: 10;
+            }
+        
+            .say-hi-button {
+              padding: 0.5em 2em;
+              border-radius: 4px;
+              border: none;
+              font-weight: bold;
+              text-align: center;
+              background-image: url('ui_assets/Left.svg');
+              background-repeat: no-repeat;
+              display: flex;
+              justify-content: start;
+              align-items: center;  
+              color: white;
+              width: 4em;
+              height: 2em;
+              text-decoration: none;
+              font-family: sans-serif;
+            }
+
+
+            .timer{
+                padding: 0.25rem;
+                border-radius: 4px;
+                border: none;
+                background: white;
+                color: black;
+                width: 4rem;
+                height: 2rem;
+                margin-left: auto;
+                font-family: sans-serif;
+                font-weight: bold;
+                text-align: center;
+                margin-right: 1em;
+            }
+        </style>
+    </head>
+
+    <body style="margin: 0; overflow: hidden;">
+        <div class="buttons">
+            <a href="home.html" class="say-hi-button text-lg font-bold">
+                <!-- <i class="material-icons">arrow_back</i> Back -->
+            </a>
+            <p id="timer" class="timer"></p>
+        </div>
+        <a-scene
+            embedded
+            loading-screen="enabled: false;"
+            vr-mode-ui="enabled: false;"
+            arjs="sourceType: webcam; debugUIEnabled: false;"
+        >
+                <a-image
+                    src="assets/GT_Card_1.png"
+                    id="ar-marker-1"
+                    look-at="[gps-camera]"
+                    scale="10 10 10"
+                    gps-entity-place="latitude: 8.5092288; longitude: 76.9614413;"
+                ></a-image>
+
+                <a-image
+                    src="assets/GT_Card_2.png"
+                    id="ar-marker-2"
+                    look-at="[gps-camera]"
+                    scale="30 30 30"
+                    gps-entity-place="latitude: 8.5087772; longitude: 76.9581838;" 
+                ></a-image>
+
+                <a-image
+                    src="assets/GT_Card_3.png"
+                    id="ar-marker-3"
+                    look-at="[gps-camera]"
+                    scale="100 100 100"
+                    gps-entity-place="latitude: 8.5096758; longitude: 76.9578197;" 
+                ></a-image>
+
+                <a-image
+                    src="assets/GT_Card_4.png"
+                    id="ar-marker-4"
+                    look-at="[gps-camera]"
+                    scale="1 1 1"
+                    gps-entity-place="latitude: 8.5091548; longitude: 76.9563626;"
+                ></a-image>
+
+                <a-image
+                    src="assets/GT_Card_5.png"
+                    id="ar-marker-5"
+                    look-at="[gps-camera]"
+                    scale="5 5 5"
+                    gps-entity-place="latitude: 8.5100020; longitude: 76.9468897;"
+                ></a-image>
+
+                <a-image
+                    src="assets/GT_Card_6.png"
+                    id="ar-marker-6"
+                    look-at="[gps-camera]"
+                    scale="1 1 1"
+                    gps-entity-place="latitude: 8.5063320; longitude: 76.9519778;"                 ></a-image>
+
+                <a-image
+                    src="assets/GT_Card_7.png"
+                    id="ar-marker-7"
+                    look-at="[gps-camera]"
+                    scale="1 1 1"
+                    gps-entity-place="latitude: 8.5047722; longitude: 76.9512017;" 
+                ></a-image>
+
+                <a-image
+                    src="assets/GT_Card_7.png"
+                    look-at="[gps-camera]"
+                    scale="1 1 1"
+                    gps-entity-place="latitude: 10.908298; longitude: 76.898614;" 
+                ></a-image>
+
+            <a-camera gps-camera rotation-reader></a-camera>
+        </a-scene>
+    </body>
+</html>

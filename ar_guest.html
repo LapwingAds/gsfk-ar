@@ -1,0 +1,356 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <style>
+            .buttons {
+              position: absolute;
+              top: 0;
+              left: 0;
+              margin-left: 10px;
+              width: 100%;
+              height: 5em;
+              display: flex;
+              justify-content: start;
+              align-items: center;
+              z-index: 10;
+            }
+        
+            .say-hi-button {
+                padding: 0.5em 2em;
+              border-radius: 4px;
+              border: none;
+              font-weight: bold;
+              text-align: center;
+              background-image: url('ui_assets/Left.svg');
+              background-repeat: no-repeat;
+              display: flex;
+              justify-content: start;
+              align-items: center;  
+              color: white;
+              width: 4em;
+              height: 2em;
+              text-decoration: none;
+              font-family: sans-serif;
+            }
+
+            .timer{
+                padding: 0.25rem;
+                border-radius: 4px;
+                border: none;
+                background: white;
+                color: black;
+                width: 4rem;
+                height: 2rem;
+                margin-left: auto;
+                font-family: sans-serif;
+                font-weight: bold;
+                text-align: center;
+                margin-right: 1em;
+            }
+        </style>
+
+
+        <script>
+            // AFRAME.registerComponent('markerhandler', {
+            //   init: function () {
+            //     this.el.sceneEl.addEventListener('markerFound', () => {
+            //       // redirect to custom URL e.g. google.com
+            //       // window.location = 'https://www.google.com/';
+            //       //alert("Hi there!");
+            //     })
+            //   }
+            // });
+        </script>
+
+    </head>
+
+    <body style="margin: 0; overflow: hidden;">
+
+        <div class="buttons">
+            <a href="home.html" class="say-hi-button text-lg font-bold">
+                <!-- <i class="material-icons">arrow_back</i> Back -->
+            </a>
+        </div>
+
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            loading-screen="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+            id="scene"
+            embedded
+            gesture-detector
+        >
+            <a-assets>
+                <a-asset-item
+                    id="animated-asset"
+                    src="assets/asset.glb"
+                ></a-asset-item>
+
+                <a-asset-item
+                    id="animated-asset2"
+                    src="assets/moon.glb"
+                ></a-asset-item>
+
+                <a-asset-item
+                    id="animated-asset3"
+                    src="assets/earth_globe.glb"
+                ></a-asset-item>
+
+                <a-asset-item
+                    id="animated-asset-no"
+                    src="assets/no_entry_sign.glb"
+                ></a-asset-item>
+
+                <a-asset-item
+                    id="animated-asset4"
+                    src="models/Match Stick.glb"
+                ></a-asset-item>
+
+                <a-asset-item
+                    id="animated-asset5"
+                    src="models/mosquito.glb"
+                ></a-asset-item>
+
+                <!-- <video id="waterVideo" loop="false"  src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" preload="auto"></video> -->
+
+                <!-- knife -->
+                <video id="knife" loop="false"  src="videos/Knife-_1.mp4" preload="none"></video>
+
+                <!-- fan -->
+                <video id="fan" loop="false"  src="https://gsfkar.s3.ap-south-1.amazonaws.com/Fan.mp4" preload="none"></video>
+
+                <!-- flask -->
+                <video id="flask" loop="false"  src="videos/Thermos Flask.mp4" preload="none"></video>
+
+                <!-- pressure-cooker -->
+                <video id="pressure-cooker" loop="false"  src="videos/PressureCooker.mp4" preload="none"></video>
+
+                <!-- flowering-plant -->
+                <video id="flowering-plant" loop="false"  src="https://gsfkar.s3.ap-south-1.amazonaws.com/Flowering%20Plant.mp4" preload="none"></video>
+
+
+                <!-- lock -->
+                <video id="lock" loop="false"  src="videos/Lock-.mp4" preload="none"></video>
+
+
+                <!-- tap -->
+                <video id="tap" loop="false" src="https://gsfkar.s3.ap-south-1.amazonaws.com/Water%20Tap.mp4" preload="none"></video>
+
+
+                <video id="detergent" loop="false" src="https://gsfkar.s3.ap-south-1.amazonaws.com/Detergent.mp4" preload="none"></video>
+
+                <video id="flushtank" loop="false" src="videos/Flush Tank.mp4" preload="none"></video>
+
+                <!-- <video id="detergent" loop="false" src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" preload="none"></video> -->
+
+                
+
+            </a-assets>
+
+            
+
+            <!-- plant -->
+            <a-marker
+                id="animated-marker34"
+                type="pattern"
+                preset="custom"
+                url="markers/m34.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerB"
+                
+            >
+
+                <a-video id="flowering-plant" rotation="90 0 180" src="#flowering-plant" height="1" width="1.78" position="0 0 0" autoplay="false">
+                </a-video>
+            </a-marker>
+
+            <!-- flush tank -->
+            <a-marker
+                id="animated-marker9"
+                type="pattern"
+                preset="custom"
+                url="markers/m9.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerB"
+                
+            >
+
+                <a-video id="flushtank" rotation="90 0 180" src="#flushtank" height="1" width="1.78" position="0 0 0" autoplay="false">
+                </a-video>
+            </a-marker>
+
+            <!-- thermos flask -->
+            <a-marker
+                id="animated-marker5"
+                type="pattern"
+                preset="custom"
+                url="markers/m5.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerB"
+                
+            >
+
+                <a-video id="flask" rotation="90 0 180" src="#flask" height="1" width="1.78" position="0 0 0" autoplay="false">
+                </a-video>
+            </a-marker>
+
+            <!-- lock -->
+            <a-marker
+                id="animated-marker23"
+                type="pattern"
+                preset="custom"
+                url="markers/m23.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerB"
+                
+            >
+
+                <a-video id="lock" rotation="90 0 180" src="#lock" height="1" width="1.78" position="0 0 0" autoplay="false">
+                </a-video>
+            </a-marker>
+
+            <!-- tap -->
+            <a-marker
+                id="animated-marker10"
+                type="pattern"
+                preset="custom"
+                url="markers/m10.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerB"
+                
+            >
+                <a-video id="tap" rotation="90 0 180" src="#tap" height="1" width="1.78" position="0 0 0" play="true">
+                </a-video>
+            </a-marker>
+
+            <!-- detergent -->
+            <a-marker
+                id="animated-marker11"
+                type="pattern"
+                preset="custom"
+                url="markers/m11.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerB"
+            >
+                <a-video id="detergent" rotation="90 0 180" src="#detergent" height="1" width="1.78" position="0 0 0" autoplay>
+                </a-video>
+            </a-marker>
+
+            <!-- fan -->
+            <a-marker
+                id="animated-marker7"
+                type="pattern"
+                preset="custom"
+                url="markers/m7.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerB"
+                
+            >
+                <a-video id="fan" rotation="90 0 180" src="#fan" height="1" width="1.78" position="0 0 0" autoplay="false">
+                </a-video>
+            </a-marker>
+
+            <!-- knife -->
+            <a-marker
+                id="animated-marker32"
+                type="pattern"
+                preset="custom"
+                url="markers/m32.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerB"
+                
+            >
+                <a-video id="knife" rotation="90 0 180" src="#knife" height="1" width="1.78" position="0 0 0" autoplay="false">
+                </a-video>
+            </a-marker>
+
+            <!-- cooker -->
+            <a-marker
+                id="animated-marker4"
+                type="pattern"
+                preset="custom"
+                url="markers/m4.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerC"
+            >
+                <a-video id="pressure-cooker" rotation="90 0 180" src="#pressure-cooker" height="1" width="1.78" position="0 0 0" autoplay="false">
+                </a-video>
+            </a-marker>
+
+            <!-- match stick -->
+            <a-marker
+                id="animated-marker2"
+                type="pattern"
+                preset="custom"
+                url="markers/m2.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerC"
+            >
+                <a-entity
+                    id="bowser-model"
+                    scale="0.05 0.05 0.05"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#animated-asset4"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <!-- mosquito -->
+            <a-marker
+                id="animated-marker"
+                type="pattern"
+                preset="custom"
+                url="markers/m1.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerC"
+            >
+                <a-entity
+                    id="bowser-model"
+                    scale="0.05 0.05 0.05"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#animated-asset5"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            
+
+            <a-entity camera></a-entity>
+        </a-scene>
+
+        <script src="scripts/direct.js"></script>
+
+    </body>
+</html>
