@@ -119,6 +119,16 @@
                     src="models/mosquito.glb"
                 ></a-asset-item>
 
+                <a-asset-item
+                    id="animated-asset6"
+                    src="assets/old_frying_pan.glb"
+                ></a-asset-item>
+
+                <a-asset-item
+                    id="animated-asset7"
+                    src="assets/fly_spray_can.glb"
+                ></a-asset-item>
+
                 <!-- <video id="waterVideo" loop="false"  src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" preload="auto"></video> -->
 
                 <!-- knife -->
@@ -147,7 +157,7 @@
 
                 <video id="detergent" loop="false" src="videos/Detergent.mp4" preload="none"></video>
 
-                <video id="flushtank" loop="false" src="videos/Flush Tank.mp4" preload="none"></video>
+                <video id="flushtank" loop="false" src="videos/FlushTank.mp4" preload="none"></video>
 
                 <!-- <video id="detergent" loop="false" src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" preload="none"></video> -->
 
@@ -213,7 +223,7 @@
                 id="animated-marker23"
                 type="pattern"
                 preset="custom"
-                url="markers/m23.patt"
+                url="markers/lock_m.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
@@ -319,6 +329,48 @@
                     scale="0.05 0.05 0.05"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset4"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <!-- pan -->
+            <a-marker
+                id="animated-marker16"
+                type="pattern"
+                preset="custom"
+                url="markers/m16.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerC"
+            >
+                <a-entity
+                    id="bowser-model"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#animated-asset6"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <!-- spray -->
+            <a-marker
+                id="animated-marker18"
+                type="pattern"
+                preset="custom"
+                url="markers/m18.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerC"
+            >
+                <a-entity
+                    id="bowser-model"
+                    scale="0.0005 0.0005 0.0005"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#animated-asset7"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
