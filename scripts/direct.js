@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     startStopwatch();
 });
 
-let popup=document.getElementById("popupContainer")
+// let popup=document.getElementById("popupContainer")
 
 // const shareSS=async(imgFile)=>{
 //     // if (!navigator.canShare({files:imgFile})) {
