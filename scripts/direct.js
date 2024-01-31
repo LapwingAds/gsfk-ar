@@ -306,10 +306,12 @@ marker5.addEventListener("markerLost",(e)=>{
     vid.pause();
 })
 
+let fanAudio=new Audio("audio/Fan.mp3")
 marker7.addEventListener("markerFound", (e)=>{ 
-
+    successAudio.play();
     let vid=document.getElementById("fan")
     vid.play();
+    // fanAudio.play();
     
     const jsonData={
         "userId":localStorage.getItem("userId"),
@@ -317,7 +319,7 @@ marker7.addEventListener("markerFound", (e)=>{
         "points":Math.ceil(100/minutes) 
     }
 
-        successAudio.play();
+        
         toast.innerHTML="Wow, correct!"
         toast.className = "show";
         setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
@@ -353,6 +355,7 @@ marker7.addEventListener("markerFound", (e)=>{
 marker7.addEventListener("markerLost",(e)=>{
     let vid=document.getElementById("fan")
     vid.pause();
+    // fanAudio.pause()
 })
 
 // marker8.addEventListener("markerFound", (e)=>{ 
@@ -694,15 +697,19 @@ marker23.addEventListener("markerFound", (e)=>{
 
 })
 
+let lockAudio=new Audio("audio/Lock.mp3")
 marker23.addEventListener("markerLost",(e)=>{
-    let vid=document.getElementById("lock")
-    vid.pause();
+    // let vid=document.getElementById("lock")
+    // vid.pause();
+    lockAudio.pause()
 })
 
 marker32.addEventListener("markerFound", (e)=>{ 
 
-    let vid=document.getElementById("knife")
-    vid.play();
+    // let vid=document.getElementById("knife")
+    // vid.play();
+
+    lockAudio.play()
     
     const jsonData={
         "userId":localStorage.getItem("userId"),
