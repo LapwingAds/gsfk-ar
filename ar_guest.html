@@ -297,6 +297,8 @@
 
                 <video id="flushtank" loop="false" src="videos/FlushTank.mp4" preload="none"></video>
 
+                <video id="calendar" loop="false" src="videos/Calendar.mp4" preload="none"></video>
+
                 <!-- <video id="detergent" loop="false" src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" preload="none"></video> -->
 
                 
@@ -508,6 +510,22 @@
                     class="clickable"
                     gesture-handler
                 ></a-entity>
+            </a-marker>
+
+            <!-- calendar -->
+            <a-marker
+                id="animated-marker6"
+                type="pattern"
+                preset="custom"
+                url="markers/m6.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerC"
+            >
+            <a-video id="calendar" rotation="90 0 180" src="#calendar" height="1" width="1.78" position="0 0 0" autoplay="false">
+            </a-video>
+                
             </a-marker>
 
             <!-- spray -->
