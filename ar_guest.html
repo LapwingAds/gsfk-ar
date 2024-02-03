@@ -7,10 +7,7 @@
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-        <script src="1b-html2canvas.js"></script>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Changa+One&display=swap" rel="stylesheet">
+
         <style>
             .buttons {
               position: absolute;
@@ -57,155 +54,30 @@
                 text-align: center;
                 margin-right: 1em;
             }
-
-            #snackbar {
-            visibility: hidden;
-            min-width: 250px;
-            margin-left: -125px;
-            background-color: #fff;
-            font-family: sans-serif;
-            color: #000;
-            text-align: center;
-            border-radius: 12px;
-            padding: 16px;
-            position: fixed;
-            z-index: 1;
-            left: 50%;
-            bottom: 30px;
-            font-size: 14px;
-            }
-
-            #snackbar.show {
-            visibility: visible;
-            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-            animation: fadein 0.5s, fadeout 0.5s 2.5s;
-            }
-
-            @-webkit-keyframes fadein {
-            from {bottom: 0; opacity: 0;} 
-            to {bottom: 30px; opacity: 1;}
-            }
-
-            @keyframes fadein {
-            from {bottom: 0; opacity: 0;}
-            to {bottom: 30px; opacity: 1;}
-            }
-
-            @-webkit-keyframes fadeout {
-            from {bottom: 30px; opacity: 1;} 
-            to {bottom: 0; opacity: 0;}
-            }
-
-            @keyframes fadeout {
-            from {bottom: 30px; opacity: 1;}
-            to {bottom: 0; opacity: 0;}
-            }
-
-            #popupContainer{
-                position: absolute;
-                background: rgba(0, 0, 0,0.96);
-                z-index: 999999999999999999999999999999;
-                height: 100vh;
-                width: 100vw;
-                top: 0;
-                left: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .popup{
-                background-image: url('ui_assets/Badge\ Background\ Slot.svg');
-                background-repeat: no-repeat;
-                width: 80vw;
-                height: 60vh;
-                margin-left: auto;
-                margin-right: auto;
-                padding: 1rem;
-                border-radius: 1rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                font-family: sans-serif;
-                font-size: large;
-            }
-
-            .popup>img{
-                width: 70%;
-                opacity: 60%;
-                mix-blend-mode: multiply;
-            }
-            
-            .popup>p{
-                color: white;
-                font-family: 'Changa One', sans-serif;
-            }
-
-            .popupBtns{
-                display: flex;
-                gap: 1rem;
-            }
-
-            .popupBtn1{
-                padding: 1.5rem;
-                /* background: #1D40AF; */
-                background-image: url('ui_assets/Button-2.svg');
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;
-                display: flex;
-                align-content: center;
-                color: white;
-            }
-
-            .popupBtn2{
-                padding: 1.5rem;
-                background-image: url('ui_assets/Button-2.svg');
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;
-                display: flex;
-                align-content: center;
-                color: white;
-            }
-
-            a{
-                text-decoration: none;
-            }
-            .web-share{
-                z-index: 9999999999999999999999999999999999999999;
-            }
         </style>
-        <meta charset='utf-8'>
+
+
+        <script>
+            // AFRAME.registerComponent('markerhandler', {
+            //   init: function () {
+            //     this.el.sceneEl.addEventListener('markerFound', () => {
+            //       // redirect to custom URL e.g. google.com
+            //       // window.location = 'https://www.google.com/';
+            //       //alert("Hi there!");
+            //     })
+            //   }
+            // });
+        </script>
+
     </head>
 
     <body style="margin: 0; overflow: hidden;">
 
         <div class="buttons">
-            <a href="index.html" class="say-hi-button text-lg font-bold">
+            <a href="home.html" class="say-hi-button text-lg font-bold">
                 <!-- <i class="material-icons">arrow_back</i> Back -->
             </a>
-            <!-- <p id="timer" class="timer"></p> -->
-            <div id="snackbar"></div>
         </div>
-
-        <!-- <div id="popupContainer" style="visibility: hidden;" class="absolute z-50 bg-black min-h-[100dvh] min-w-[100dvw]">
-            <div class="popup">
-                <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/9afd3b92ab41ffca7f368a8fcbd6d39a75894efe0edbc14cf1f067cf625e6678.png"/>
-                <p>boohoo!</p>
-                <div class="popupBtns">
-                    <a class="popupBtn2" href="home.html">
-                        Give up
-                    </a>
-                    <a class="popupBtn1" href="ar_dd.html">
-                        Try Again
-                    </a>
-                </div>
-                
-
-            </div>
-        </div> -->
 
         <a-scene
             vr-mode-ui="enabled: false;"
@@ -284,6 +156,11 @@
                 <!-- flowering-plant -->
                 <video id="flowering-plant" loop="false"  src="videos/FloweringPlant.mp4" preload="none"></video>
 
+                <!-- towel -->
+                <video id="towel" loop="false"  src="videos/Towel.mp4" preload="none"></video>
+
+                <!-- dust -->
+                <video id="dust" loop="false"  src="videos/Dust.mp4" preload="none"></video>
 
                 <!-- lock -->
                 <video id="lock" loop="false"  src="videos/Lock-.mp4" preload="none"></video>
@@ -296,8 +173,6 @@
                 <video id="detergent" loop="false" src="videos/Detergent.mp4" preload="none"></video>
 
                 <video id="flushtank" loop="false" src="videos/FlushTank.mp4" preload="none"></video>
-
-                <video id="calendar" loop="false" src="videos/Calendar.mp4" preload="none"></video>
 
                 <!-- <video id="detergent" loop="false" src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" preload="none"></video> -->
 
@@ -338,6 +213,23 @@
             >
 
                 <a-video id="flushtank" rotation="90 0 180" src="#flushtank" height="1" width="1.78" position="0 0 0" autoplay="false">
+                </a-video>
+            </a-marker>
+
+            <!-- towel -->
+            <a-marker
+                id="animated-marker39"
+                type="pattern"
+                preset="custom"
+                url="markers/m39.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerB"
+                
+            >
+
+                <a-video id="towel" rotation="90 0 180" src="#towel" height="1" width="1.78" position="0 0 0" autoplay="false">
                 </a-video>
             </a-marker>
 
@@ -429,9 +321,10 @@
             >
                 <a-video id="fan" rotation="90 0 180" src="#fan" height="1" width="1.78" position="0 0 0" autoplay="false">
                 </a-video>
+
                 <!-- <a-entity
                     id="bowser-model"
-                    scale="0.5 0.5 0.5"
+                    scale="1 1 1"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset9"
                     class="clickable"
@@ -467,6 +360,21 @@
                 id="markerC"
             >
                 <a-video id="pressure-cooker" rotation="90 0 180" src="#pressure-cooker" height="1" width="1.78" position="0 0 0" autoplay="false">
+                </a-video>
+            </a-marker> 
+
+            <!-- dust -->
+            <a-marker
+                id="animated-marker12"
+                type="pattern"
+                preset="custom"
+                url="markers/m12.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerC"
+            >
+                <a-video id="dust" rotation="90 0 180" src="#dust" height="1" width="1.78" position="0 0 0" autoplay="false">
                 </a-video>
             </a-marker> 
 
@@ -510,22 +418,6 @@
                     class="clickable"
                     gesture-handler
                 ></a-entity>
-            </a-marker>
-
-            <!-- calendar -->
-            <a-marker
-                id="animated-marker6"
-                type="pattern"
-                preset="custom"
-                url="markers/m6.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerC"
-            >
-            <a-video id="calendar" rotation="90 0 180" src="#calendar" height="1" width="1.78" position="0 0 0" autoplay="false">
-            </a-video>
-                
             </a-marker>
 
             <!-- spray -->
@@ -576,6 +468,6 @@
         </a-scene>
 
         <script src="scripts/direct.js"></script>
-        <script src="web-share-shim.bundle.min.js"></script>
+
     </body>
 </html>
